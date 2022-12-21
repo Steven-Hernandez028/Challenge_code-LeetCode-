@@ -1,4 +1,4 @@
-const IsPalindrome=(x)=>{
+export const IsPalindrome=(x)=>{
     let string = x.toString();
     let newString = '';
 
