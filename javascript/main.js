@@ -1,6 +1,9 @@
-import { findMedianSortedArrays } from "./Hard/findMedianSortedArrays";
+import { canMakeArithmeticProgression } from "./easy/canMakeArithmetichProgression";
+
+
+
 // import { atoi } from "./Medium/atoi";
 
 // console.log(atoi("21474836460"));
-console.log(findMedianSortedArrays([1,3,5],[6,3,2]));
+console.log(canMakeArithmeticProgression([3,5,5]));
 
