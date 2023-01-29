@@ -17,3 +17,5 @@ export const minDeletionSize=()=>{
      
            
 }
+
+console.log(minDeletionSize(["2ef23"]))

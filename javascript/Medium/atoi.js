@@ -1,38 +1,35 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
 
 export const atoi = (str) => {
+  const MAX_NUM = Math.pow(2, 31);
+  const MIN_NUM = Math.pow(-2, 31);
+  let num = [];
 
-    const Round = (n) => {
-        if (n > 0) {
-          return n << 0;
-        }
-        return (n - 1) << 0;
-      };
-      
-  let initial = 0,
-    res = 0,
-    sign = 1;
- 
-  while (str[initial] == ' ' && initial < str.length) {
-    initial++;
-  }
+  const newArray = Array.from(str);
 
-  if (str[initial] == '+' || str[initial] == '-' && initial < str.length) {
-    sign = str[initial] == '-'? -1 : 1;
-    initial++;
-  }
-  const MAX_INT = Math.pow(2,31) - 1;
-  const MIN_INT =  -Math.pow(2,31);
-  while ( str[initial] > 0 && str[initial].match(/[0-9]/) != null) {
-    const num = str[initial] - "0";
-    if (
-      res > Math.floor(MAX_INT / 10) ||
-      (res === Math.floor(MAX_INT / 10) && num > MAX_INT % 10)
-    ){
-      return (sign === 1) ? MAX_INT : MIN_INT ;
+  for (const [index, element] of newArray.entries()) {
+    if (element != " ") {
+      num.push(element);
     }
-    res = res * 10 + num;
-    initial++;
+
+    // if (isNaN(element)) {
+    //   if (element == "-") num.push("-");
+    //   let i = newArray.indexOf(index);
+    //   num.splice(i, 1);
+    // }
   }
 
-  return res * sign;
-};
+  // const total = Number(num.join(''));
+  // if(total >= MAX_NUM) return MAX_NUM;
+  // if(total <= MIN_NUM) return MIN_NUM;
+  if(num[0]=='f')
+  { return 0
+  }
+  return num;
+
+}
+
+console.log(atoi("f 0021"));
