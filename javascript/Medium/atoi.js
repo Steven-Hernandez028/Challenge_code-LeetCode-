@@ -1,35 +1,31 @@
-/**
- * @param {string} s
- * @return {number}
- */
 
-export const atoi = (str) => {
-  const MAX_NUM = Math.pow(2, 31);
-  const MIN_NUM = Math.pow(-2, 31);
-  let num = [];
 
-  const newArray = Array.from(str);
 
-  for (const [index, element] of newArray.entries()) {
-    if (element != " ") {
-      num.push(element);
-    }
 
-    // if (isNaN(element)) {
-    //   if (element == "-") num.push("-");
-    //   let i = newArray.indexOf(index);
-    //   num.splice(i, 1);
-    // }
+
+const myAtoi = (s)=>{
+
+  let i = 0, sign = 1, num = 0;
+
+  while (s[i] === ' '){
+    i++
   }
 
-  // const total = Number(num.join(''));
-  // if(total >= MAX_NUM) return MAX_NUM;
-  // if(total <= MIN_NUM) return MIN_NUM;
-  if(num[0]=='f')
-  { return 0
+  if (s[i] === '+' || s[i] === '-'){
+
+    sign = s[i] === '-' ? -1 : 1;
+
+    i++
   }
+
+  while (i <s.length && /\d/.test(s[i])){
+
+    num = num * 10 + (s[i] - '0');
+    i++
+  }
+
+  num *= sign;
+  num = Math.max(Math.min(num, 2**31 - 1), -(2**31));
+
   return num;
-
 }
-
-console.log(atoi("f 0021"));
